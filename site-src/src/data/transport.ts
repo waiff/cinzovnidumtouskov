@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
-import { Building2, Bus, Factory, Landmark, Milestone, Moon, Route, Ticket, Warehouse } from 'lucide-react'
+import { Building2, Bus, Factory, Landmark, Milestone, Moon, Route, SquareParking, Ticket, Warehouse } from 'lucide-react'
 
 export interface Destination {
   icon: LucideIcon
@@ -31,6 +31,11 @@ export interface TransitFact {
 
 export const transit: TransitFact[] = [
   {
+    icon: SquareParking,
+    title: 'Parkování u domu',
+    text: 'Parkování přímo u domu pro 10 vozidel – pro auta zaměstnanců i firemní vozy.',
+  },
+  {
     icon: Bus,
     title: 'Autobus 56 (PMDP)',
     text: 'Město Touškov – Plzeň, CAN – Vinice. Na centrální autobusové nádraží zhruba 35 minut, v pracovní dny.',
@@ -51,4 +56,5 @@ export const locationFacts = [
   { value: '9 km', label: 'od Plzně, severozápadním směrem' },
   { value: '≈ 10 min', label: 'na dálnici D5' },
   { value: '35 min', label: 'autobusem na plzeňské CAN' },
+  { value: '10 aut', label: 'parkování přímo u domu' },
 ]

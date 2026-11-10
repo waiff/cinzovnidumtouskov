@@ -8,11 +8,9 @@ import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
 
 const spanClass = {
-  hero: 'col-span-2 aspect-[4/3] sm:row-span-2 sm:aspect-auto',
-  tall: 'aspect-square sm:row-span-2 sm:aspect-auto',
-  wide: 'col-span-2 aspect-[2/1] sm:aspect-auto',
-  wideSm: 'aspect-square sm:col-span-2 sm:aspect-auto',
-  square: 'aspect-square sm:aspect-auto',
+  hero: 'col-span-2 aspect-[3/2] sm:row-span-2 sm:aspect-auto',
+  square: 'aspect-[4/3] sm:aspect-auto',
+  last: 'col-span-2 aspect-[2/1] sm:aspect-auto lg:col-span-1',
 } as const
 
 export function Gallery() {
@@ -30,10 +28,10 @@ export function Gallery() {
               Dům a byty <em>na fotografiích</em>
             </>
           }
-          description="Fasáda, interiéry bytů a společný dvorek. Prohlídku na místě rádi domluvíme."
+          description="Dům po dokončené rekonstrukci, zatím bez nábytku. Vybavení bytů doplníme podle dohody s nájemcem a prohlídku na místě rádi domluvíme."
         />
 
-        <div className="mt-12 grid grid-flow-dense grid-cols-2 gap-3 sm:auto-rows-[220px] sm:gap-4 lg:grid-cols-4">
+        <div className="mt-12 grid grid-flow-dense grid-cols-2 gap-3 sm:auto-rows-[240px] sm:gap-4 lg:grid-cols-3">
           {photos.map((p, i) => (
             <Reveal key={p.id} delay={i * 60} className={cn(spanClass[p.span])}>
               <PhotoSlot

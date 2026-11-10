@@ -1,4 +1,4 @@
-import { Home, Sparkles, Warehouse } from 'lucide-react'
+import { Handshake, Home, Sparkles, Warehouse } from 'lucide-react'
 import { perApartment, perHouse, type Amenity } from '../../data/amenities'
 import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
@@ -32,7 +32,19 @@ export function Amenities() {
           description="Zaměstnanci přijedou s kufrem. Kuchyně, praní, úklid i bezpečnost jsou vyřešené v každém bytě i v celém domě."
         />
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-12">
+        <Reveal className="mt-12">
+          <div className="flex items-start gap-4 rounded-2xl border border-brand-200 bg-brand-50/80 px-5 py-4 sm:items-center">
+            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-white text-brand-700 shadow-sm ring-1 ring-brand-200">
+              <Handshake className="size-5" strokeWidth={1.7} />
+            </span>
+            <p className="text-[15px] leading-relaxed text-ink-soft">
+              <span className="font-semibold text-ink">Vybavení upřesníme podle dohody s nájemcem.</span> Níže uvedené položky jsou orientační možnosti, konkrétní
+              rozsah domluvíme podle potřeb vašich zaměstnanců.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-5 grid gap-5 lg:grid-cols-12">
           <Reveal className="lg:col-span-8">
             <div className="h-full rounded-[28px] border border-stone-300/60 bg-white p-4 shadow-soft sm:p-6">
               <div className="flex items-center justify-between gap-3 px-3 pt-1 pb-3">

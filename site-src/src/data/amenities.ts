@@ -15,6 +15,7 @@ import {
   LockKeyhole,
   Microwave,
   Recycle,
+  SquareParking,
   Refrigerator,
   Shirt,
   SprayCan,
@@ -56,6 +57,7 @@ export const perApartment: Amenity[] = [
 ]
 
 export const perHouse: Amenity[] = [
+  { icon: SquareParking, title: 'Parkování u domu', text: 'Pro 10 vozidel.' },
   { icon: Recycle, title: 'Společný dvorek', text: 'S kontejnery na odpad.' },
   { icon: Bike, title: 'Stojan na kola' },
   { icon: Shirt, title: 'Sušáky na prádlo', text: 'Na dvorku.' },

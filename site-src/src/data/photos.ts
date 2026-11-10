@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
-import { Bath, BedDouble, Building, ChefHat, Sofa, Trees } from 'lucide-react'
+import { Bath, BedDouble, Building, Sofa } from 'lucide-react'
 
 export interface PhotoSlot {
   id: string
@@ -8,15 +8,57 @@ export interface PhotoSlot {
   icon: LucideIcon
   /** Cesta k fotce ve složce /public/photos, např. '/photos/fasada.webp'. Bez `src` se zobrazí designový placeholder. */
   src?: string
-  /** Rozložení v mřížce galerie. */
-  span: 'hero' | 'wide' | 'wideSm' | 'tall' | 'square'
+  /** Rozložení v mřížce galerie: hero = velká dlaždice, last = poslední dlaždice (na mobilu přes celou šířku). */
+  span: 'hero' | 'square' | 'last'
 }
 
 export const photos: PhotoSlot[] = [
-  { id: 'fasada', label: 'Fasáda', caption: 'Činžovní dům, Mlýnská 63', icon: Building, span: 'hero' },
-  { id: 'obytny', label: 'Obytný pokoj', caption: 'Obytný pokoj s jídelním stolem', icon: Sofa, span: 'tall' },
-  { id: 'kuchyne', label: 'Kuchyňský kout', caption: 'Kuchyňská linka s indukcí a lednicí', icon: ChefHat, span: 'square' },
-  { id: 'loznice', label: 'Ložnice', caption: 'Ložnice pro 2 osoby', icon: BedDouble, span: 'square' },
-  { id: 'koupelna', label: 'Koupelna', caption: 'Koupelna s WC v každém bytě', icon: Bath, span: 'wideSm' },
-  { id: 'dvorek', label: 'Dvorek', caption: 'Společný dvorek a zahrádky', icon: Trees, span: 'wide' },
+  {
+    id: 'dum',
+    label: 'Dům',
+    caption: 'Hlavní budova a přístavba po rekonstrukci',
+    icon: Building,
+    src: '/photos/dum-pohled-shora.webp',
+    span: 'hero',
+  },
+  {
+    id: 'podkrovi',
+    label: 'Podkroví',
+    caption: 'Obytný prostor v podkroví s trámy',
+    icon: Sofa,
+    src: '/photos/podkrovi-obytny-prostor.webp',
+    span: 'square',
+  },
+  {
+    id: 'koupelna',
+    label: 'Koupelna',
+    caption: 'Koupelna se sprchovým koutem a WC',
+    icon: Bath,
+    src: '/photos/koupelna.webp',
+    span: 'square',
+  },
+  {
+    id: 'pokoj',
+    label: 'Pokoj',
+    caption: 'Světlý pokoj po rekonstrukci',
+    icon: BedDouble,
+    src: '/photos/pokoj.webp',
+    span: 'square',
+  },
+  {
+    id: 'podkrovi-okna',
+    label: 'Podkroví',
+    caption: 'Podkroví – štítová a střešní okna',
+    icon: Sofa,
+    src: '/photos/podkrovi-okna.webp',
+    span: 'square',
+  },
+  {
+    id: 'koupelna-podkrovi',
+    label: 'Koupelna',
+    caption: 'Koupelna v podkroví',
+    icon: Bath,
+    src: '/photos/koupelna-podkrovi.webp',
+    span: 'last',
+  },
 ]

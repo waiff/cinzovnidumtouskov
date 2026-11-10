@@ -87,6 +87,14 @@ function RouteMap() {
       <text x="140" y="77" fontSize="12" fontWeight="650" fill="#fff" fontFamily="Inter Tight Variable, Inter Tight, ui-sans-serif, system-ui, sans-serif">
         Město Touškov
       </text>
+      <rect x="40" y="112" width="58" height="22" rx="6" fill="#fff" stroke="#C6E1D3" />
+      <rect x="45" y="116" width="14" height="14" rx="3" fill="#0F6B4F" />
+      <text x="52" y="127" textAnchor="middle" fontSize="10" fontWeight="700" fill="#fff" fontFamily="Inter Tight Variable, Inter Tight, ui-sans-serif, system-ui, sans-serif">
+        P
+      </text>
+      <text x="64" y="127" fontSize="10.5" fontWeight="600" fill="#0B5740" fontFamily="Inter Tight Variable, Inter Tight, ui-sans-serif, system-ui, sans-serif">
+        10 aut
+      </text>
       <text x="140" y="92" fontSize="10" fill="#C6E1D3" fontFamily="Inter Tight Variable, Inter Tight, ui-sans-serif, system-ui, sans-serif">
         Mlýnská 63
       </text>
@@ -127,9 +135,17 @@ export function Location() {
                   <RouteMap />
                 </div>
               </div>
-              <dl className="grid grid-cols-3 border-t border-stone-200/80">
+              <dl className="grid grid-cols-2 border-t border-stone-200/80 sm:grid-cols-4">
                 {locationFacts.map((f, i) => (
-                  <div key={f.label} className={i > 0 ? 'border-l border-stone-200/80 px-4 py-4 sm:px-6' : 'px-4 py-4 sm:px-6'}>
+                  <div
+                    key={f.label}
+                    className={[
+                      'px-4 py-4 sm:px-5',
+                      i % 2 === 1 ? 'border-l border-stone-200/80' : '',
+                      i >= 2 ? 'border-t border-stone-200/80 sm:border-t-0' : '',
+                      i === 2 ? 'sm:border-l' : '',
+                    ].join(' ')}
+                  >
                     <dd className="text-xl font-semibold tracking-tight text-ink tabular-nums sm:text-2xl">{f.value}</dd>
                     <dt className="mt-0.5 text-[12px] leading-snug text-muted sm:text-[13px]">{f.label}</dt>
                   </div>
@@ -171,7 +187,7 @@ export function Location() {
           </Reveal>
         </div>
 
-        <ul className="mt-5 grid gap-4 md:grid-cols-3">
+        <ul className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {transit.map((t, i) => (
             <Reveal as="li" key={t.title} delay={i * 70}>
               <div className="flex h-full gap-4 rounded-[24px] border border-stone-300/60 bg-white/80 p-5 backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft">

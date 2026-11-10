@@ -72,6 +72,9 @@ export function PhotoSlot({ photo, className, onOpen, priority }: Props) {
               status === 'loaded' ? 'scale-100 opacity-100 blur-0' : 'scale-[1.02] opacity-0 blur-sm',
             )}
           />
+          <span className="pointer-events-none absolute top-3 left-3 rounded-full border border-white/60 bg-white/75 px-2.5 py-1 text-[11px] font-medium text-ink backdrop-blur-md sm:top-4 sm:left-4">
+            {photo.label}
+          </span>
           <span className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/45 to-transparent p-4 pt-12 text-left text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             <span className="text-sm font-medium">{photo.caption}</span>
             <Maximize2 className="size-4" />

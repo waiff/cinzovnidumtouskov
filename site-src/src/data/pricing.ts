@@ -22,7 +22,7 @@ export const pricing: {
 
 export const pricingIncludes = [
   'Pronájem celého domu – 8 bytů, 407,4 m²',
-  'Kompletní vybavení bytů dle seznamu',
+  'Vybavení bytů podle dohody s nájemcem',
   'Lůžko, skříň a noční stolek pro každého',
   'Společný dvorek se zázemím',
 ]
