@@ -1,0 +1,15 @@
+# Činžovní dům Touškov – statický web (build z /site-src)
+Options -Indexes
+DirectoryIndex index.html
+
+# Zdrojové kódy a git nejsou součástí webu
+RedirectMatch 404 ^/(site-src|\.git)(/|$)
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(png|jpe?g|webp|svg|ico|txt|xml)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+</IfModule>
