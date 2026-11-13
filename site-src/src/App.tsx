@@ -1,4 +1,5 @@
 import { ExplorerProvider } from './context/VariantContext'
+import { AnnouncementBar } from './components/sections/AnnouncementBar'
 import { Amenities } from './components/sections/Amenities'
 import { Apartments } from './components/sections/Apartments'
 import { FloorPlans } from './components/sections/FloorPlans'
@@ -19,6 +20,7 @@ export default function App() {
       <a href="#varianty" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[90] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white">
         Přeskočit na obsah
       </a>
+      <AnnouncementBar />
       <Nav />
       <main>
         <Hero />

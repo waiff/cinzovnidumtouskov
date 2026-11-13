@@ -10,10 +10,38 @@ import { Logo } from '../ui/Logo'
 
 const ids = navLinks.map((l) => l.id)
 
+/** Odsazení navigace od horního okraje: výška pruhu nad ní, dokud ho uživatel neodscrolluje. */
+function useBannerOffset(id: string) {
+  const [offset, setOffset] = useState(0)
+  useEffect(() => {
+    const el = document.getElementById(id)
+    if (!el) return
+    let frame = 0
+    const update = () => {
+      frame = 0
+      setOffset(Math.max(0, el.offsetHeight - window.scrollY))
+    }
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update)
+    }
+    update()
+    const ro = new ResizeObserver(schedule)
+    ro.observe(el)
+    window.addEventListener('scroll', schedule, { passive: true })
+    return () => {
+      ro.disconnect()
+      window.removeEventListener('scroll', schedule)
+      if (frame) cancelAnimationFrame(frame)
+    }
+  }, [id])
+  return offset
+}
+
 export function Nav() {
   const scrolled = useScrolled()
   const active = useScrollSpy(ids)
   const [open, setOpen] = useState(false)
+  const bannerOffset = useBannerOffset('announcement')
   useLockBodyScroll(open)
 
   /** Menu nejdřív zavře (uvolní zámek scrollu), teprve pak posune na sekci. */
@@ -43,8 +71,9 @@ export function Nav() {
   return (
     <>
       <header
+        style={{ top: `calc(${bannerOffset}px + env(safe-area-inset-top, 0px))` }}
         className={cn(
-          'fixed inset-x-0 top-[env(safe-area-inset-top,0px)] z-50 transition-all duration-300',
+          'fixed inset-x-0 z-50 transition-[background-color,border-color,box-shadow] duration-300',
           scrolled || open ? 'border-b border-stone-300/50 bg-paper/75 shadow-[0_1px_0_rgb(255_255_255/0.6)_inset] backdrop-blur-md' : 'border-b border-transparent',
         )}
       >
@@ -100,8 +129,9 @@ export function Nav() {
 
       <div
         id="mobile-menu"
+        style={{ top: `calc(${bannerOffset + 72}px + env(safe-area-inset-top, 0px))` }}
         className={cn(
-          'fixed inset-x-0 top-[calc(72px+env(safe-area-inset-top,0px))] bottom-0 z-40 flex flex-col bg-paper/95 backdrop-blur-xl transition-all duration-300 lg:hidden',
+          'fixed inset-x-0 bottom-0 z-40 flex flex-col bg-paper/95 backdrop-blur-xl transition-all duration-300 lg:hidden',
           open ? 'pointer-events-auto opacity-100' : 'pointer-events-none -translate-y-2 opacity-0',
         )}
         aria-hidden={!open}

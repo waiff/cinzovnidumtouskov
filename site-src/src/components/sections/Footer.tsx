@@ -1,5 +1,5 @@
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react'
-import { navLinks, site } from '../../data/site'
+import { navLinks, operator, operatorStatement, site } from '../../data/site'
 import { Logo } from '../ui/Logo'
 
 export function Footer() {
@@ -64,7 +64,13 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 border-t border-white/10 pt-6">
+          <p className="max-w-3xl text-[13px] leading-relaxed text-white/60">
+            {operatorStatement()} <span className="text-white/80">{operator.condition}</span>
+          </p>
+        </div>
+
+        <div className="mt-5 flex flex-col gap-3 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {site.name} · {site.domain}</p>
           <p>Půdorysy a časy dojezdu jsou orientační.</p>
         </div>
