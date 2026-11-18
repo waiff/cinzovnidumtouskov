@@ -40,11 +40,11 @@ export const apartments: Apartment[] = [
       {
         name: 'Obytný pokoj s kuchyňským koutem',
         area: 23.8,
-        items: ['kuchyně', 'stůl', 'pračka + sušička'],
+        items: ['linka 3,45 m', 'stůl', 'pračka + sušička'],
         itemsB: ['2 lůžka', '2 skříně'],
         persons: { A: 0, B: 2 },
       },
-      { name: 'Koupelna s WC', area: 3.0, items: [], persons: { A: 0, B: 0 } },
+      { name: 'Koupelna s WC', area: 3.0, items: ['vana se zástěnou'], persons: { A: 0, B: 0 } },
     ],
   },
   {
@@ -61,11 +61,11 @@ export const apartments: Apartment[] = [
       {
         name: 'Obytný pokoj s kuchyňským koutem',
         area: 22.0,
-        items: ['kuchyně', 'stůl', 'pračka + sušička'],
+        items: ['linka 3,35 m', 'stůl', 'pračka + sušička'],
         itemsB: ['2 lůžka', '2 skříně'],
         persons: { A: 0, B: 2 },
       },
-      { name: 'Koupelna s WC', area: 4.4, items: [], persons: { A: 0, B: 0 } },
+      { name: 'Koupelna s WC', area: 4.4, items: ['vana se zástěnou'], persons: { A: 0, B: 0 } },
     ],
   },
   {
@@ -80,12 +80,12 @@ export const apartments: Apartment[] = [
       { name: 'Ložnice', area: 18.3, items: bedroomItems, persons: { A: 2, B: 2 } },
       {
         name: 'Obytný pokoj s kuchyňským koutem',
-        area: 26.0,
-        items: ['kuchyně', 'stůl', 'pračka + sušička'],
+        area: 25.9,
+        items: ['linka 3,53 m', 'stůl', 'pračka + sušička'],
         itemsB: ['2 lůžka', '2 skříně'],
         persons: { A: 0, B: 2 },
       },
-      { name: 'Koupelna s WC', area: 3.8, items: [], persons: { A: 0, B: 0 } },
+      { name: 'Koupelna s WC', area: 3.8, items: ['vana se zástěnou'], persons: { A: 0, B: 0 } },
     ],
   },
   {
@@ -101,11 +101,11 @@ export const apartments: Apartment[] = [
       {
         name: 'Obytný pokoj s kuchyňským koutem',
         area: 23.5,
-        items: ['kuchyně', 'stůl', 'pračka + sušička'],
+        items: ['linka 3,40 m', 'stůl', 'pračka + sušička'],
         itemsB: ['2 lůžka', '2 skříně'],
         persons: { A: 0, B: 2 },
       },
-      { name: 'Koupelna s WC', area: 4.1, items: [], persons: { A: 0, B: 0 } },
+      { name: 'Koupelna s WC', area: 4.1, items: ['vana se zástěnou'], persons: { A: 0, B: 0 } },
     ],
   },
   {
@@ -121,10 +121,10 @@ export const apartments: Apartment[] = [
       {
         name: 'Obytný pokoj s kuchyňským koutem',
         area: 31.3,
-        items: ['kuchyně', 'stůl', 'pohovka', 'pračka + sušička'],
+        items: ['linka 2,25 m', 'stůl', 'pohovka', 'pračka + sušička'],
         persons: { A: 0, B: 0 },
       },
-      { name: 'Koupelna s WC', area: 4.7, items: [], persons: { A: 0, B: 0 } },
+      { name: 'Koupelna s WC', area: 4.7, items: ['sprchový kout'], persons: { A: 0, B: 0 } },
     ],
   },
   {
@@ -140,10 +140,10 @@ export const apartments: Apartment[] = [
       {
         name: 'Obytný pokoj s kuchyňským koutem',
         area: 24.7,
-        items: ['kuchyně', 'stůl', 'pohovka', 'sušička'],
+        items: ['linka 3,25 m', 'stůl', 'pohovka', 'sušička'],
         persons: { A: 0, B: 0 },
       },
-      { name: 'Koupelna s WC', area: 4.5, items: ['pračka'], persons: { A: 0, B: 0 } },
+      { name: 'Koupelna s WC', area: 4.5, items: ['sprchový kout', 'pračka'], persons: { A: 0, B: 0 } },
     ],
   },
   {
@@ -158,11 +158,11 @@ export const apartments: Apartment[] = [
     rooms: [
       {
         name: 'Pokoj s kuchyňským koutem',
-        area: 25.7,
-        items: ['2 lůžka', '2 skříně', '2 noční stolky', 'kuchyně', 'stůl', 'pračka'],
+        area: 25.6,
+        items: ['2 lůžka', '2 skříně', '2 noční stolky', 'linka 3,20 m', 'stůl', 'pračka'],
         persons: { A: 2, B: 2 },
       },
-      { name: 'Koupelna s WC', area: 6.5, items: [], persons: { A: 0, B: 0 } },
+      { name: 'Koupelna s WC', area: 6.5, items: ['vana se zástěnou'], persons: { A: 0, B: 0 } },
     ],
   },
   {
@@ -177,10 +177,10 @@ export const apartments: Apartment[] = [
       {
         name: 'Pokoj s kuchyňským koutem',
         area: 32.4,
-        items: ['2 lůžka', '2 skříně', '2 noční stolky', 'kuchyně', 'stůl', 'pračka'],
+        items: ['2 lůžka', '2 skříně', '2 noční stolky', 'linka 4,95 m', 'stůl', 'pračka'],
         persons: { A: 2, B: 2 },
       },
-      { name: 'Koupelna s WC', area: 4.0, items: [], persons: { A: 0, B: 0 } },
+      { name: 'Koupelna s WC', area: 4.0, items: ['sprchový kout'], persons: { A: 0, B: 0 } },
     ],
   },
 ]

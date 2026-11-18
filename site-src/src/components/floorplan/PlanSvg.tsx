@@ -127,16 +127,11 @@ function StairGlyph({ s }: { s: Stair }) {
 function PlanSvgInner({ plan, variant, activeApt, hoveredRoom, onHoverRoom, onSelectRoom, title }: Props) {
   const [W, H] = plan.size
   const vb = `${-PAD} ${-PAD} ${W + PAD * 2} ${H + PAD * 2}`
-  const hatchId = `hatch-${plan.id}`
   const lowId = `low-${plan.id}`
 
   return (
     <svg viewBox={vb} className="h-auto w-full select-none" role="img" aria-label={title} fontFamily="Inter Tight Variable, Inter Tight, ui-sans-serif, system-ui, sans-serif">
       <defs>
-        <pattern id={hatchId} width={0.14} height={0.14} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <rect width={0.14} height={0.14} fill="#D8D2C6" />
-          <path d="M0 0 V0.14" stroke={INK} strokeWidth={0.03} opacity={0.55} />
-        </pattern>
         <pattern id={lowId} width={0.16} height={0.16} patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
           <path d="M0 0 V0.16" stroke="#A7A196" strokeWidth={0.018} opacity={0.6} />
         </pattern>
@@ -230,7 +225,13 @@ function PlanSvgInner({ plan, variant, activeApt, hoveredRoom, onHoverRoom, onSe
           <rect key={`p${i}`} x={a} y={b} width={c - a} height={d - b} fill={INK} />
         ))}
         {plan.chimneys?.map(([a, b, c, d], i) => (
-          <rect key={`ch${i}`} x={a} y={b} width={c - a} height={d - b} fill={`url(#${hatchId})`} stroke={INK} strokeWidth={0.02} />
+          <g key={`ch${i}`}>
+            <rect x={a} y={b} width={c - a} height={d - b} fill="#FFFFFF" stroke={INK} strokeWidth={0.02} />
+            <path d={`M${a} ${d} L${c} ${d} L${c} ${b} Z`} fill={INK} />
+          </g>
+        ))}
+        {plan.posts?.map(([a, b, c, d], i) => (
+          <rect key={`po${i}`} x={a} y={b} width={c - a} height={d - b} fill="#7A5A2E" stroke="#4A3518" strokeWidth={0.015} />
         ))}
       </g>
 

@@ -140,7 +140,7 @@ export function FloorPlans() {
             </div>
             <div className="rounded-[24px] border border-stone-300/60 bg-white p-5 shadow-sm">
               <p className="mb-3 text-[13px] font-semibold text-ink">Legenda</p>
-              <Legend attic={plan.id === '3np'} />
+              <Legend attic={plan.id === '3np'} chimney={!!plan.chimneys?.length} />
             </div>
           </aside>
         </Reveal>

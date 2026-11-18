@@ -161,20 +161,26 @@ export function Furniture({ item, accent }: Props) {
         </g>
       )
     case 'wc': {
-      if (vertical) {
+      // nádržka u stěny: výchozí nahoře (svislé WC) nebo vpravo (vodorovné), jinak podle `head`
+      const side = item.head ?? (vertical ? 't' : 'r')
+      if (side === 't' || side === 'b') {
         const tank = Math.min(0.18, h * 0.3)
+        const ty = side === 't' ? y0 : y1 - tank
+        const by = side === 't' ? y0 + tank + (h - tank) / 2 : y0 + (h - tank) / 2
         return (
           <g>
-            <rect x={x0 + 0.02} y={y0} width={w - 0.04} height={tank} rx={0.03} fill="#FFFFFF" stroke={stroke} strokeWidth={SW} />
-            <ellipse cx={cx} cy={y0 + tank + (h - tank) / 2} rx={w * 0.38} ry={(h - tank) / 2 - 0.01} fill="#FFFFFF" stroke={stroke} strokeWidth={SW} />
+            <rect x={x0 + 0.02} y={ty} width={w - 0.04} height={tank} rx={0.03} fill="#FFFFFF" stroke={stroke} strokeWidth={SW} />
+            <ellipse cx={cx} cy={by} rx={w * 0.38} ry={(h - tank) / 2 - 0.01} fill="#FFFFFF" stroke={stroke} strokeWidth={SW} />
           </g>
         )
       }
       const tank = Math.min(0.18, w * 0.3)
+      const tx = side === 'r' ? x1 - tank : x0
+      const bx = side === 'r' ? x0 + (w - tank) / 2 : x0 + tank + (w - tank) / 2
       return (
         <g>
-          <rect x={x1 - tank} y={y0 + 0.02} width={tank} height={h - 0.04} rx={0.03} fill="#FFFFFF" stroke={stroke} strokeWidth={SW} />
-          <ellipse cx={x0 + (w - tank) / 2} cy={cy} rx={(w - tank) / 2 - 0.01} ry={h * 0.38} fill="#FFFFFF" stroke={stroke} strokeWidth={SW} />
+          <rect x={tx} y={y0 + 0.02} width={tank} height={h - 0.04} rx={0.03} fill="#FFFFFF" stroke={stroke} strokeWidth={SW} />
+          <ellipse cx={bx} cy={cy} rx={(w - tank) / 2 - 0.01} ry={h * 0.38} fill="#FFFFFF" stroke={stroke} strokeWidth={SW} />
         </g>
       )
     }
@@ -207,6 +213,17 @@ export function Furniture({ item, accent }: Props) {
           <rect x={x0} y={y0} width={w} height={h} fill="#FFFFFF" stroke={stroke} strokeWidth={SW} />
           <circle cx={cx} cy={cy} r={Math.min(w, h) * 0.42} fill="#F4F6F5" stroke={stroke} strokeWidth={SW} />
         </g>
+      )
+    case 'rail':
+      // věšáková lišta na stěně
+      return (
+        <path
+          d={vertical ? `M${cx} ${y0} V${y1}` : `M${x0} ${cy} H${x1}`}
+          stroke="#8A6A3B"
+          strokeWidth={0.05}
+          strokeDasharray="0.1 0.07"
+          strokeLinecap="butt"
+        />
       )
   }
 }
